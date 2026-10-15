@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: institute-management
+  elasticsearch:
+    uris: ${ELASTICSEARCH_URI:http://localhost:9201}
+  datasource:
+    url: jdbc:mysql://localhost:3306/institute_management
+    username: root
+    password: Sahil@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+app:
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:4200}
+  admin:
+    email: ${ADMIN_EMAIL:admin@institute.local}
+    password: ${ADMIN_PASSWORD:Admin@12345}
